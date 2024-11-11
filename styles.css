@@ -1,0 +1,19 @@
+table {
+    margin-top: 25px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:hover {
+    background-color: #d4d4d4;
+}
+
+th, td {
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+    border-bottom: 1px solid #DDD;
+}
+
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
