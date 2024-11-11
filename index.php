@@ -56,7 +56,8 @@
                 <th>Date Added</th>
                 <th>Action</th>
             </tr>
-            <?php if (!isset($_GET['btn_Search'])) { ?> <!-- DISPLAY ALL RECORDS -->
+            <!-- DISPLAY ALL RECORDS -->
+            <?php if (!isset($_GET['btn_Search'])) { ?>
                 <?php $getAllRecords = getAll_Records($pdo); ?>
                 
                 <?php foreach ($getAllRecords as $row) { ?>
@@ -75,7 +76,8 @@
                         </td>
                     </tr>
                 <?php } ?>
-            <?php } else { ?>  <!-- DISPLAY SEARCHED RECORD/S -->
+            <!-- DISPLAY SEARCHED RECORD/S -->
+            <?php } else { ?>
                 <?php $getRecord = searchSpecific_Record($pdo, $_GET['inp_Search']); ?>
                 
                 <?php foreach ($getRecord as $row) { ?>
