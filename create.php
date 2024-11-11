@@ -13,37 +13,41 @@
     </head>
     <body class="add_Record">
         <div class="center_Form">
-            <!-- MESSAGE -->
+            
+            <!-- OPERATIONS MESSAGE -->
             <?php if (isset($_SESSION['message'])) { ?>
                 <h1 style="color: red;"><?= $_SESSION['message']; ?></h1>
             <?php }
                 unset($_SESSION['message']);
             ?>
 
+
+            <!-- INPUTS -->
             <h1 class="center_Form">Add record</h1>
 
             <form class="center_Form" action="core/handleForms.php" method="POST">
-                <p>
+                
+                <p> <!-- FIRST NAME -->
                     <label for="first_Name">First Name: </label> 
                     <input type="text" name="first_Name">
                 </p>
 
-                <p>
+                <p> <!-- LAST NAME -->
                     <label for="last_Name">Last Name: </label> 
                     <input type="text" name="last_Name">
                 </p>
 
-                <p>
+                <p> <!-- DATE OF BIRTH -->
                     <label for="dob">Date of Birth: </label> 
                     <input type="date" name="dob">
                 </p>
 
-                <p>
+                <p> <!-- AGE -->
                     <label for="age">Age:</label>
                     <input type="number" name="age" min="18" max="75">
                 </p>
 
-                <p>
+                <p> <!-- SEX -->
                     <label for="sex">Sex: </label>
 
                     
@@ -54,21 +58,19 @@
                     <label class="radio_button" for="option2">F</label>
                 </p>
 
-                <p>
+                <p> <!-- RESIDENCE -->
                     <label for="residence">Residence: </label> 
                     <input type="text" name="residence">
                 </p>
 
-                <p>
+                <p> <!-- EMAIL -->
                     <label for="email">Email: </label> 
                     <input type="email" name="email">
                 </p>
 
-                <p>
-                    <input type="submit" name="btn_Add">
-                </p>
+                 <!-- SUBMIT -->
+                <input type="submit" name="btn_Add">
             </form>
         </div>
-        
     </body>
 </html>
