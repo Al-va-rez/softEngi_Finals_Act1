@@ -1,0 +1,64 @@
+/* MAIN FONT FAMILY */
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+/* TABLE DESIGN */
+table {
+    margin-top: 25px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:hover {
+    background-color: #d4d4d4;
+}
+
+th, td {
+    padding: 10px 10px 0px 10px;
+    text-align: center;
+    border-bottom: 1px solid #DDD;
+}
+
+
+
+/* INPUT FIELDS DESIGN */
+body.login {
+    background-color: darkslategray;
+}
+body.register {
+    background-color: darkslateblue;
+}
+body.add_Record {
+    background-color: #d9ae70;
+}
+body.edit_Record {
+    background-color: #0040b6;
+}
+
+
+div.center_Form {
+    background-color: white;
+    border: 5px solid;
+    width: fit-content;
+    padding: 25px 50px;
+    margin: auto;
+    margin-top: 50px;
+}
+h1.center_Form {
+    text-align: center;
+}
+form.center_Form {
+    padding: 15px 0px 30px;
+}
+
+
+
+/* RADIO BUTTON LAYOUT */
+input[type="radio"] {
+    display: inline;
+}
+.radio_button {
+    margin-right: 7px;
+}
