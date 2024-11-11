@@ -9,19 +9,23 @@
     }
 
     function validatePassword($password) {
-        if (strlen($password) > 8) { // longer than 8 char
+        // longer than 8 char
+        if (strlen($password) > 8) {
             $hasLower = false;
             $hasUpper = false;
             $hasNumber = false;
 
             for ($i = 0; $i < strlen($password); $i++) {
-                if (ctype_lower($password[$i])) { // has lower case
+                // has lower case
+                if (ctype_lower($password[$i])) {
                     $hasLower = true; 
                 }
-                elseif (ctype_upper($password[$i])) { // has upper case
+                // has upper case
+                elseif (ctype_upper($password[$i])) {
                     $hasUpper = true; 
                 }
-                elseif (ctype_digit($password[$i])) { // has numbers
+                // has numbers
+                elseif (ctype_digit($password[$i])) {
                     $hasNumber = true;
                 }
                 
@@ -47,13 +51,15 @@
 
             $userInfo = $stmt->fetch();
 
-            if ($stmt->rowCount() > 0) { // user already in database
+            // user already in database
+            if ($stmt->rowCount() > 0) {
                 $response = array(
                     "result" => true,
                     "status" => "200",
                     "userInfo" => $userInfo
                 );
-            } else { // green light for adding user
+            // green light for adding user
+            } else {
                 $response = array(
                     "status" => "400",
                     "message" => "User not found in database"
@@ -75,13 +81,15 @@
             $sql = "INSERT INTO user_credentials (username, first_Name, last_Name, password) VALUES (?,?,?,?)";
             $stmt = $pdo->prepare($sql);
 
-            if ($stmt->execute([$username, $first_Name, $last_Name, $password])) { // add user to database
+            // add user to database
+            if ($stmt->execute([$username, $first_Name, $last_Name, $password])) {
                 $response = array(
                     "status" => "200",
                     "message" => "User added"
                 );
             } else {
-                $response = array( // user already registered
+                // user already registered
+                $response = array(
                     "status" => "400",
                     "message" => "User already registered"
                 );
