@@ -12,11 +12,11 @@ CREATE TABLE applicants (
 
 CREATE TABLE user_credentials (
     id INT AUTO_INCREMENT PRIMARY KEY,
-	username VARCHAR(255),
-	first_Name VARCHAR(255),
-	last_Name VARCHAR(255),
-	password TEXT,
-	date_Added TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+    username VARCHAR(255),
+    first_Name VARCHAR(255),
+    last_Name VARCHAR(255),
+    password TEXT,
+    date_Added TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
 INSERT INTO applicants (id, first_Name, last_Name, dob, age, sex, residence, email, date_Added) VALUES
