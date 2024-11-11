@@ -131,7 +131,7 @@
     // SEARCH
     function searchSpecific_Record($pdo, $searchQuery) {
         
-        $sql = "SELECT * FROM applicants WHERE CONCAT(first_Name, last_Name, dob, age, sex, residence, email) COLLATE utf8mb4_bin LIKE ? ";
+        $sql = "SELECT * FROM applicants WHERE CONCAT(first_Name, last_Name, dob, age, sex, residence, email, date_Added) COLLATE utf8mb4_bin LIKE ? ";
 
         $query = $pdo->prepare($sql);
         $executeQuery = $query->execute(["%" . $searchQuery . "%"]);
