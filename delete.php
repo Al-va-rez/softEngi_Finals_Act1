@@ -26,6 +26,7 @@
             <h3>Email: <?= $user_Record['email']; ?></h3>
             <h3>Date Added: <?= $user_Record['date_Added']; ?></h3>
 
+            <!-- DELETE -->
             <div class="deleteBtn" style="position: absolute; margin: 0px 20px 20px 0px; left: 0; bottom: 0; padding-left: 25px;">
                 <form action="core/handleForms.php?id=<?= $_GET['id']; ?>" method="POST">
                     <input type="submit" name="btn_Delete" value="Delete">
