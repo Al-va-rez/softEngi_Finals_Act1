@@ -15,35 +15,44 @@
 
             if ($_POST['password'] == $_POST['password_conf']) {
 
-                if (validatePassword(sanitizeInput($_POST['password']))) { // check password strength
+                // check password strength
+                if (validatePassword(sanitizeInput($_POST['password']))) {
 
-                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // encrypt password
-                    $register = register($pdo, $username, $first_Name, $last_Name, $password); // add user
-
-                    if ($register['status'] == '200') { // user added
+                    // encrypt password
+                    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                    
+                    // add user
+                    $register = register($pdo, $username, $first_Name, $last_Name, $password);
+                    
+                    // user added
+                    if ($register['status'] == '200') {
                         echo '<script>
                             alert("User registered. (200)");
                             window.location.href = "../index.php";
                         </script>';
 
-                    } else { // already registered
+                    // already registered
+                    } else {
                         echo '<script>
                             alert("Already registered. (400)");
                             window.location.href = "../register.php";
                         </script>';
                     }
-                } else { // weak password
+                // weak password
+                } else {
                     echo '<script>
                         alert("Password should be more than 8 characters and should contain both uppercase, lowercase, and numbers.");
                         window.location.href = "../register.php";
                     </script>';
                 }
-            } else { // passwords not the same
+            // passwords not the same
+            } else { 
                 $_SESSION['message'] = "Passwords are not the same";
                 $_SESSION['status'] = "400";
                 header("Location: ../register.php");
             }
-        } else { // missing info
+        // missing info
+        } else {
             $_SESSION['message'] = "Missing info";
             $_SESSION['status'] = "400";
             header("Location: ../register.php");
@@ -60,26 +69,33 @@
 
             $check_User = check_UserExists($pdo, $username); 
 
-            if ($check_User['status'] == '200') { // user found in database
+            // user found in database
+            if ($check_User['status'] == '200') {
                 $username_FromDB = $check_User['userInfo']['username'];
                 $password_FromDB = $check_User['userInfo']['password'];
 
                 if (password_verify($password, $password_FromDB)) {
                     $_SESSION['username'] = $username_FromDB;
                     header('Location: ../index.php');
-                    
-                } else { // wrong password
+
+                // wrong password
+                } else {
                     echo '<script>
                         alert("Wrong password. (400)");
                         window.location.href = "../index.php";
                     </script>';
                 }
-            } else { // wrong username
-                $_SESSION['message'] = $check_User['message']; // "User not found in database"
-                $_SESSION['status'] = $check_User['status']; // "400"
+            // wrong username
+            } else {
+                // "User not found in database"
+                $_SESSION['message'] = $check_User['message'];
+                // "400"
+                $_SESSION['status'] = $check_User['status'];
+                
                 header("Location: ../login.php");
             }
-        } else { // missing info
+        // missing info
+        } else {
             $_SESSION['message'] = "Missing info";
             $_SESSION['status'] = "400";
             header("Location: ../login.php");
@@ -115,7 +131,8 @@
             } else {
                 echo "AAAAAAAAAAAAAAAA";
             }
-        } else { // missing info
+        // missing info
+        } else {
             $_SESSION['message'] = "Missing info";
             $_SESSION['status'] = "400";
             header("Location: ../create.php");
@@ -142,7 +159,8 @@
             } else {
                 echo "AAAAAAAAAAAAAAAA";
             }
-        } else { // missing info
+        // missing info
+        } else {
             $_SESSION['message'] = "Missing info";
             $_SESSION['status'] = "400";
             header("Location: ../edit.php");
