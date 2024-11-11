@@ -69,19 +69,19 @@
         $response = array();
         $check_User = check_UserExists($pdo, $username);
 
-        // add user to database
+        
         if (!$check_User['result']) {
 
             $sql = "INSERT INTO user_credentials (username, first_Name, last_Name, password) VALUES (?,?,?,?)";
             $stmt = $pdo->prepare($sql);
 
-            if ($stmt->execute([$username, $first_Name, $last_Name, $password])) {
+            if ($stmt->execute([$username, $first_Name, $last_Name, $password])) { // add user to database
                 $response = array(
                     "status" => "200",
                     "message" => "User added"
                 );
             } else {
-                $response = array(
+                $response = array( // user already registered
                     "status" => "400",
                     "message" => "User already registered"
                 );
@@ -96,8 +96,8 @@
     /* --- RECORDS --- */
     // FETCH ALL
     function getAll_Records($pdo) {
+        
         $sql = "SELECT * FROM applicants ORDER BY last_Name ASC";
-        // store table name to global variable?
 
         $query = $pdo->prepare($sql);
         $executeQuery = $query->execute();
@@ -109,6 +109,7 @@
 
     // FETCH
     function getSpecific_Record($pdo, $id) {
+        
         $sql = "SELECT * FROM applicants WHERE id = ?";
 
         $query = $pdo->prepare($sql);
@@ -121,6 +122,7 @@
 
     // SEARCH
     function searchSpecific_Record($pdo, $searchQuery) {
+        
         $sql = "SELECT * FROM applicants WHERE CONCAT(first_Name, last_Name, dob, age, sex, residence, email) COLLATE utf8mb4_bin LIKE ? ";
 
         $query = $pdo->prepare($sql);
@@ -133,6 +135,7 @@
 
     // ADD
     function add_Record($pdo, $first_Name, $last_Name, $dob, $age, $sex, $residence, $email) {
+        
         $sql = "INSERT INTO applicants (first_Name, last_Name, dob, age, sex, residence, email) VALUES (?,?,?,?,?,?,?)";   
 
         $query = $pdo->prepare($sql);
@@ -145,6 +148,7 @@
 
     // UPDATE
     function edit_Record($pdo, $first_Name, $last_Name, $dob, $age, $sex, $residence, $email) {
+        
         $sql = "UPDATE applicants
                     SET first_Name = ?,
                         last_Name = ?,
@@ -166,6 +170,7 @@
 
     // DELETE
     function delete_Record($pdo, $id) {
+        
         $sql = "DELETE FROM applicants WHERE id = ?";
 
         $query = $pdo->prepare($sql);
