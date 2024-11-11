@@ -13,6 +13,8 @@
     </head>
     <body class="login">
         <div class="center_Form">
+            
+            <!-- OPERATIONS MESSAGE -->
             <?php
                 if (isset($_SESSION['message']) && isset($_SESSION['status'])) {
 
@@ -27,22 +29,28 @@
                 unset($_SESSION['message']);
                 unset($_SESSION['status']);
             ?>
+
+            
+            <!-- INPUTS -->
             <h1 class="center_Form">LOGIN</h1>
             
             <form class="center_Form" action="core/handleForms.php" method="POST">
-                <p>
+                
+                <p> <!-- USERNAME -->
                     <label for="inp_uName">Username: </label>
                     <input type="text" id="inp_uName" name="username">
                 </p>
                 
-                <p>
+                <p> <!-- PASSWORD -->
                     <label for="inp_uPass">Password: </label>
                     <input type="password" id="inp_uPass" name="password">
                 </p>
 
+                <!-- SUBMIT -->
                 <input type="submit" value="login" id="loginBtn" name="btn_Login">
             </form>
 
+            <!-- REGISTER -->
             <i><a href="register.php">Register</a></i>
         </div>
     </body>
