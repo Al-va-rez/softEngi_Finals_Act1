@@ -30,8 +30,10 @@
             <i><a href="core/handleForms.php?btn_Logout=1">Logout</a></i>
         </div>
 
-        <p><a href="index.php">Clear Search Query</a></p> <!-- CLEAR SEARCH BOX -->
-        <p><a href="create.php">Add applicant</a></p> <!-- ADD APPLICANT -->
+        <!-- CLEAR SEARCH BOX -->
+        <p><a href="index.php">Clear Search Query</a></p>
+        <!-- ADD APPLICANT -->
+        <p><a href="create.php">Add applicant</a></p>
 
         
         <!-- SEARCH BOX -->
@@ -54,7 +56,7 @@
                 <th>Date Added</th>
                 <th>Action</th>
             </tr>
-            <?php if (!isset($_GET['btn_Search'])) { ?> <!-- display all records -->
+            <?php if (!isset($_GET['btn_Search'])) { ?> <!-- DISPLAY ALL RECORDS -->
                 <?php $getAllRecords = getAll_Records($pdo); ?>
                 
                 <?php foreach ($getAllRecords as $row) { ?>
@@ -73,7 +75,7 @@
                         </td>
                     </tr>
                 <?php } ?>
-            <?php } else { ?>  <!-- display searched record/s -->
+            <?php } else { ?>  <!-- DISPLAY SEARCHED RECORD/S -->
                 <?php $getRecord = searchSpecific_Record($pdo, $_GET['inp_Search']); ?>
                 
                 <?php foreach ($getRecord as $row) { ?>
