@@ -73,10 +73,10 @@
                     <label for="sex">Sex: </label>
 
                         
-                    <input type="radio" name="sex" id="option1" value="Male" <?php if ($user_Record['sex'] == "Male") {?> checked="checked" <?php } ?>>
+                    <input type="radio" name="sex" id="option1" value="Male" <?php if ($user_Record['sex'] == "Male") { ?> checked="checked" <?php } ?>>
                     <label class="radio_button" for="option1">M</label>
 
-                    <input type="radio" name="sex" id="option2" value="Female" <?php if ($user_Record['sex'] == "Female") {?> checked="checked" <?php } ?>>
+                    <input type="radio" name="sex" id="option2" value="Female" <?php if ($user_Record['sex'] == "Female") { ?> checked="checked" <?php } ?>>
                     <label class="radio_button" for="option2">F</label>
                 </p>
 
