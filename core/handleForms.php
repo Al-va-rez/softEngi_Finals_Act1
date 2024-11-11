@@ -106,16 +106,15 @@
         $email = sanitizeInput($_POST['email']);
 
         if (!empty($first_Name) && !empty($last_Name) && !empty($dob) && !empty($age) && !empty($sex) && !empty($residence) && !empty($email)) {
-            
-            $query = add_Record($pdo, $first_Name, $last_Name, $dob, $age, $sex, $residence, $email); 
 
-            if ($query) {
+            if (add_Record($pdo, $first_Name, $last_Name, $dob, $age, $sex, $residence, $email)) {
+                
                 $_SESSION['message'] = "Record created.";
                 header("Location: ../index.php");
+                
             } else {
                 echo "AAAAAAAAAAAAAAAA";
             }
-
         } else { // missing info
             $_SESSION['message'] = "Missing info";
             $_SESSION['status'] = "400";
@@ -134,16 +133,15 @@
         $email = sanitizeInput($_POST['email']);
 
         if (!empty($first_Name) && !empty($last_Name) && !empty($dob) && !empty($age) && !empty($sex) && !empty($residence) && !empty($email)) {
-            
-            $query = edit_Record($pdo, $first_Name, $last_Name, $dob, $age, $sex, $residence, $email); 
 
-            if ($query) {
+            if (edit_Record($pdo, $first_Name, $last_Name, $dob, $age, $sex, $residence, $email)) {
+                
                 $_SESSION['message'] = "Record updated.";
                 header("Location: ../index.php");
+                
             } else {
                 echo "AAAAAAAAAAAAAAAA";
             }
-
         } else { // missing info
             $_SESSION['message'] = "Missing info";
             $_SESSION['status'] = "400";
@@ -155,9 +153,11 @@
     if (isset($_POST['btn_Delete'])) {
         $query1 = delete_Record($pdo, $_GET['id']);
 
-        if ($query1) {
+        if (delete_Record($pdo, $_GET['id'])) {
+            
             $_SESSION['message'] = "Record deleted.";
             header("Location: ../index.php");
+            
         } else {
             echo "AAAAAAAAAAAA";
         }
