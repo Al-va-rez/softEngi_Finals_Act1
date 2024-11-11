@@ -16,27 +16,31 @@
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <!-- MESSAGE -->
+        <!-- OPERATIONS MESSAGE -->
         <?php if (isset($_SESSION['message'])) { ?>
             <h1 style="color: green;"><?= $_SESSION['message']; ?></h1>
         <?php }
             unset($_SESSION['message']);
         ?>
 
+
+        <!-- WELCOME MESSAGE -->
         <div>
             <h1>Welcome, <?= $_SESSION['username'] ?></h1>
             <i><a href="core/handleForms.php?btn_Logout=1">Logout</a></i>
         </div>
 
-        <p><a href="index.php">Clear Search Query</a></p>
-        <p><a href="create.php">Add applicant</a></p>
+        <p><a href="index.php">Clear Search Query</a></p> <!-- CLEAR SEARCH BOX -->
+        <p><a href="create.php">Add applicant</a></p> <!-- ADD APPLICANT -->
 
+        
         <!-- SEARCH BOX -->
         <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET">
             <input type="text" name="inp_Search" placeholder="search here...">
             <input type="submit" name="btn_Search">
         </form>
 
+        
         <!-- SEARCH RESULTS -->
         <table>
             <tr>
